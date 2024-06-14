@@ -27,8 +27,29 @@ void solve(){
     cout<<dp[n]<<'\n';
 }
 
+ll getMax(ll n){
+    ll x=0;
+    while(n>0){
+        ll i=n%10;
+        x=max(i,x);
+        n/=10;
+    }
+    return x;
+}
+
+void solveGreedy(){
+    ll n;cin>>n;
+    ll ans=0;
+    while(n>0){
+        ll mx=getMax(n);
+        n-=mx;
+        ans++;
+    }
+    cout<<ans;
+}
+
 signed main(){
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     //ll t;cin>>t;while(t--)
-    solve();
+    solveGreedy();
 }
